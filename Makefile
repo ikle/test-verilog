@@ -6,7 +6,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 #
 
-TARGETS  = counter-tb.vcd crc-tb.vcd
+TARGETS  = counter-tb.vcd crc-tb.vcd fifo-tb.vcd
 
 VC ?= iverilog
 
@@ -23,3 +23,4 @@ clean:
 
 counter-tb.vcd: counter-tb.v counter.v
 crc-tb.vcd: crc-tb.v crc-serial.v crc32-serial-ll.v crc-parallel.v
+fifo-tb.vcd: fifo-tb.v fifo.v counter.v fifo-tb.dat
