@@ -52,8 +52,8 @@ module fifo #(
 	reg [W - 1:0] ram [2**ORDER - 1:0];
 	wire [ORDER - 1:0] w, r;
 
-	gray_counter #(ORDER) cw (reset, 0, ~put, w);
-	gray_counter #(ORDER) cr (reset, 0, ~get, r);
+	gray_counter #(ORDER) cw (reset, {ORDER{1'b0}}, ~put, w);
+	gray_counter #(ORDER) cr (reset, {ORDER{1'b0}}, ~get, r);
 
 	fifo_state #(ORDER) state (reset, w, r, empty, full);
 
@@ -86,7 +86,7 @@ module pfifo #(
 			head <= w;
 
 	gray_counter #(ORDER) cw (reset | drop, head, ~put, w);
-	gray_counter #(ORDER) cr (reset, 0, ~get, r);
+	gray_counter #(ORDER) cr (reset, {ORDER{1'b0}}, ~get, r);
 
 	fifo_state #(ORDER) state (reset, w, r, bufs_empty, bufs_full);
 
