@@ -24,4 +24,4 @@ clean:
 counter-tb.vcd: counter-tb.v counter.v
 crc-tb.vcd: crc-tb.v crc-serial.v crc32-serial-ll.v crc-parallel.v
 fifo-tb.vcd: fifo-tb.v fifo.v counter.v fifo-tb.dat
-hdlc-tb.vcd: hdlc-tb.vcd hdlc-tb.v hdlc.v fifo.v counter.v hdlc-tb.dat
+hdlc-tb.vcd: hdlc-tb.v hdlc.v fifo.v counter.v hdlc-tb.dat
