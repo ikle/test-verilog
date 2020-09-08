@@ -28,7 +28,7 @@ module hdlc_parser (
 	assign mark  = raw == 8'b01111110;
 	assign error = raw[7:1] == 7'b1111111;
 
-	counter_ff #(4) c (reset, 0, ~shift, cnt);
+	counter_ff #(4) c (reset, 4'b0, ~shift, cnt);
 
 	assign flush = cnt == 8;
 	assign reset = mark | error | (flush & ~clk);
