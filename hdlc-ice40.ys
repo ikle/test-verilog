@@ -1,0 +1,5 @@
+read_verilog hdlc.v
+synth_ice40 -retime
+write_spice hdlc-ice40.sp
+
+# show -colors 42 -prefix hdlc-ice40 -stretch hdlc_rx
