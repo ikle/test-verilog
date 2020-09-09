@@ -14,7 +14,7 @@ module hdlc_parser (
 	output flush, mark, error
 );
 	reg [7:0] raw;
-	wire shift, five_ones, reset;
+	wire shift, reset;
 	wire [3:0] cnt;
 
 	always @(posedge clk)
