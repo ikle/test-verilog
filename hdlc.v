@@ -59,8 +59,10 @@ module hdlc_rx #(
 			avail <= 0;
 
 	pfifo #(8, BUF_ORDER, COUNT_ORDER) pipe (
-		reset,
-		data, enable & flush, full, avail & mark, full | error,
-		out, get, empty, start
+		.reset (reset),
+		.in (data), .put (enable & flush), .full (full),
+		.commit (avail & mark), .drop (full | error),
+		.out (out), .get (get), .empty (empty),
+		.start (start)
 	);
 endmodule
